@@ -17,18 +17,38 @@
 # Hint: Don't use `set()`
 
 
+from heapq import merge
+
+# Janell pointed me in the direction of while, WHEW!
+
+
 def remove_adjacent(nums):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Removes adjacent numbers that are equal to predecessor."""
+    number = 1
+    while number < len(nums):
+        if nums[number] == nums[number-1]:
+            nums.pop(number)
+            number -= 1
+        else:
+            number += 1
+    return nums
+    # for number in nums:
+    #     if number == nums[number-1]:
+    #         nums.pop(number)
+    # return nums
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
 # list of all the elements in sorted order. You may modify the passed in lists.
-# The solution should work in "linear" time, making a single pass of both lists.
+# The solution should work in "linear" time, making a single pass of both lists
 # Hint: Don't use `sort` or `sorted` -- they are not linear time.
+# This site pointed me to merge via heapq:
+# https://www.geeksforgeeks.org/python-combining-two-sorted-lists/
+
 def linear_merge(list1, list2):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Merges two input lists, sorts strings in list."""
+    new_list = list(merge(list1, list2))
+    return new_list
 
 
 # Simple provided test() function used in main() to print
