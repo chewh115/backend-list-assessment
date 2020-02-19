@@ -17,7 +17,7 @@
 # Hint: Don't use `set()`
 
 
-from heapq import merge
+# from heapq import merge
 
 # Janell pointed me in the direction of while, WHEW!
 
@@ -32,23 +32,25 @@ def remove_adjacent(nums):
         else:
             number += 1
     return nums
-    # for number in nums:
-    #     if number == nums[number-1]:
-    #         nums.pop(number)
-    # return nums
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
 # list of all the elements in sorted order. You may modify the passed in lists.
 # The solution should work in "linear" time, making a single pass of both lists
 # Hint: Don't use `sort` or `sorted` -- they are not linear time.
-# This site pointed me to merge via heapq:
-# https://www.geeksforgeeks.org/python-combining-two-sorted-lists/
+
 
 def linear_merge(list1, list2):
     """Merges two input lists, sorts strings in list."""
-    new_list = list(merge(list1, list2))
-    return new_list
+    result = []
+    while list1 and list2:
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 
 # Simple provided test() function used in main() to print

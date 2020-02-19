@@ -26,6 +26,7 @@
 
 def match_ends(words):
     """Counts how many strings in a list begin and end in the same letters."""
+
     same = 0
     for word in words:
         if len(word) > 1 and word[0] == word[-1]:
@@ -49,10 +50,7 @@ def front_x(words):
             x_words.append(word)
         else:
             other_words.append(word)
-    x_words.sort()
-    other_words.sort()
-    words = x_words + other_words
-    return words
+    return sorted(x_words) + sorted(other_words)
 
 
 # C. sort_last
