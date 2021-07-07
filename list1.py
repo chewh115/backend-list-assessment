@@ -25,8 +25,13 @@
 
 
 def match_ends(words):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Counts how many strings in a list begin and end in the same letters."""
+
+    same = 0
+    for word in words:
+        if len(word) > 1 and word[0] == word[-1]:
+            same += 1
+    return same
 
 
 # B. front_x
@@ -37,8 +42,15 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Sort a given list of words alphabetically, with x words leading."""
+    x_words = []
+    other_words = []
+    for word in words:
+        if word[0] == 'x':
+            x_words.append(word)
+        else:
+            other_words.append(word)
+    return sorted(x_words) + sorted(other_words)
 
 
 # C. sort_last
@@ -48,8 +60,9 @@ def front_x(words):
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
-    """Your code goes here.  Edit this docstring."""
-    return
+    """Sorting a list of tuples by the last element in each tuple."""
+    tuples = sorted(tuples, key=lambda tuple: tuple[-1])
+    return tuples
 
 
 # Simple provided test() function used in main() to print
